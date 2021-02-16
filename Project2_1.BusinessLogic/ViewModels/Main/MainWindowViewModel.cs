@@ -35,6 +35,8 @@ namespace Project2_1.BusinessLogic.ViewModels.Main
         private void DoEditEmployee()
         {
             var selectedEmployee = SelectedEmployee;
+            selectedEmployee.SetBackup();
+            
             dialogService.ShowEmployeeDialog(selectedEmployee);
         }
 

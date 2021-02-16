@@ -17,10 +17,16 @@ namespace Project2_1.BusinessLogic.ViewModels.EmployeeEditor
     private string name;
     private string surname;
 
+    private string nameBackup;
+
+    private string surnameBackup;
+    
     // Private methods ----------------------------------------------------
 
     private void DoCancel()
     {
+      Name = nameBackup;
+      Surname = surnameBackup;
       access.Close(false);
     }
 
@@ -44,6 +50,12 @@ namespace Project2_1.BusinessLogic.ViewModels.EmployeeEditor
       this.access = editorAccess;
     }
 
+    public void SetBackup()
+    {
+      nameBackup = Name;
+      surnameBackup = Surname;
+    }
+    
     // Public properties --------------------------------------------------
 
     public ICommand OkCommand { get; }
